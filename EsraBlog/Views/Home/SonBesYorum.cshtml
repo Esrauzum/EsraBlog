@@ -1,0 +1,24 @@
+﻿@model List<EsraBlog.data.Yorum>
+<div style="border:1px solid red;padding:25px;text-align:center;">
+    <h2>Son Beş Yorum</h2>
+    @{
+        
+        for (int i = 0; i < Model.Count() - 1; i++)
+        {
+           
+            <div style="border:1px solid red">
+                
+                <h3>Üye Bilgileri</h3>
+                Adı : @Model[i].Uye.Ad<br />
+                Soyadı : @Model[i].Uye.Soyad<br />
+                <h3>Makale Bilgileri</h3>
+                
+                Başlık : @Html.ActionLink(@Model[i].Makale.Baslik, "YorumMakalesi", new { yorumId = Model[i].YorumId })
+                <h3>Yorumun İçeriği</h3>
+                <p>@Model[i].Icerik</p>
+                Tarih : @Model[i].Tarih
+            </div>
+        }
+    }
+</div>
+

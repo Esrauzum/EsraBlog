@@ -1,0 +1,27 @@
+﻿@model List<EsraBlog.data.Makale>
+
+@{
+    <h2>MAKALELER:</h2>    
+   
+    <div style="border:1px solid black;padding:25px;text-align:center;">
+        
+       
+        @foreach (var item in Model)
+        {
+
+            <div style="border:1px solid black">
+                @Html.ActionLink(item.Baslik, "MakaleDetay", new { makaleId = item.MakaleId })
+
+                <p>@item.Icerik</p>
+
+               
+        
+                <strong>Tarih : @item.Tarih </strong>
+
+            </div>
+        }
+        
+    </div>
+    <img src="~/Images/adminresmi/Gırnata.jpg" alt="Granada" border="0" align="left" height="750" width="1350">
+}
+
